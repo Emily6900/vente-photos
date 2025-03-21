@@ -14,7 +14,7 @@
             padding: 0;
             overflow-x: hidden;
             transition: filter 0.3s ease;
-            scroll-behavior: smooth; /* Permet un défilement fluide */
+            scroll-behavior: smooth;
         }
 
         header {
@@ -31,11 +31,11 @@
         section {
             padding: 20px;
             text-align: center;
-            min-height: 300px; /* Hauteur minimale pour que la page soit plus longue */
+            min-height: 300px;
         }
 
         .cta {
-            margin-top: 30px;
+            margin-top: 15px; /* Réduit encore l'espace au-dessus du bouton */
             padding: 15px 25px;
             background-color: #ff69b4;
             color: #fff;
@@ -66,7 +66,6 @@
             color: #fff;
         }
 
-        /* Galerie avec des images défilant de gauche à droite */
         .scroll-gallery-wrapper {
             overflow: hidden;
             width: 100%;
@@ -100,14 +99,12 @@
             }
         }
 
-        /* Section de prix et bouton d'achat */
         .price-info {
             margin-top: 20px;
             font-size: 18px;
             color: #ff69b4;
         }
 
-        /* Optimisation pour mobile */
         @media (max-width: 768px) {
             header {
                 padding: 15px;
@@ -135,7 +132,7 @@
             }
 
             .scroll-gallery img {
-                width: 250px; /* Taille des images pour mobile */
+                width: 250px;
                 margin: 0 5px;
                 filter: blur(4px);
             }
@@ -145,7 +142,7 @@
             }
 
             section {
-                padding: 50px 20px; /* Augmente l'espace entre les sections */
+                padding: 50px 20px;
             }
         }
     </style>
