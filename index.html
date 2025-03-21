@@ -33,7 +33,7 @@
         }
 
         .cta {
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 15px 25px;
             background-color: #ff69b4;
             color: #fff;
@@ -60,7 +60,7 @@
 
         /* Galerie avec des images défilant de gauche à droite */
         .scroll-gallery-wrapper {
-            overflow-x: scroll; /* Assurer le défilement horizontal sur mobile */
+            overflow: hidden;
             width: 100%;
             white-space: nowrap;
             position: relative;
@@ -144,33 +144,35 @@
             .cta {
                 font-size: 18px;
                 padding: 12px 20px;
+                margin-top: 15px; /* Remontée du bouton sur mobile */
             }
 
             .scroll-gallery-wrapper {
-                display: flex;
-                justify-content: center;
-                overflow-x: auto;
-                margin: 0 auto;
-                /* Flexbox pour assurer que les images s'affichent en ligne sur mobile */
-                flex-wrap: nowrap;
-                gap: 10px;
+                width: 100%;
+                overflow-x: scroll;
+                display: block;
+                white-space: nowrap;
             }
 
             .scroll-gallery {
-                display: flex;
-                flex-direction: row; /* Images en ligne */
-                width: max-content;
+                display: inline-flex;
+                width: auto;
             }
 
             .scroll-gallery img {
-                width: 90%; /* Plus grande taille d'image sur mobile */
-                max-width: 250px; /* Limite de la taille */
+                width: 250px; /* Taille des images pour mobile */
                 margin: 0 5px;
                 filter: blur(4px);
             }
 
             footer {
                 padding: 10px;
+            }
+
+            /* Remontée de la section 'Acheter' */
+            .price-info {
+                font-size: 16px;
+                margin-bottom: 15px;
             }
         }
     </style>
