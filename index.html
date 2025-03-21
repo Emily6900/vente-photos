@@ -2,164 +2,235 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>📸 Choisis Tes Photos - Vente Exclusive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emily's Photos - Vente de contenu exclusif">
+    <title>Emily's Photos - Vente de contenu exclusif</title>
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scaleUp {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffebf3;
-            color: #880e4f;
-            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
             margin: 0;
+            padding: 0;
             overflow-x: hidden;
+            transition: filter 0.3s ease;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+
+        header {
+            background-color: #000;
             padding: 20px;
+            text-align: center;
         }
-        .content {
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cta {
+            margin-top: 30px;
+            padding: 15px 25px;
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #c2185b;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
             width: 100%;
-            max-width: 600px;
-            background: rgba(255, 192, 203, 0.8);
+        }
+
+        /* Galerie avec des images défilant de gauche à droite */
+        .scroll-gallery-wrapper {
+            overflow-x: scroll; /* Assurer le défilement horizontal sur mobile */
+            width: 100%;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .scroll-gallery {
+            display: flex;
+            animation: scroll 40s linear infinite;
+        }
+
+        .scroll-gallery img {
+            width: 300px;
+            height: auto;
+            margin: 0 10px;
+            filter: blur(8px);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .scroll-gallery img:hover {
+            filter: blur(4px);
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Modal pour les photos */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-            animation: fadeIn 1s ease-in-out, scaleUp 1s ease-in-out;
-            display: none;
+            width: 80%;
+            max-width: 600px;
+            overflow-y: auto;
+            text-align: center;
         }
-        .content.active {
-            display: block;
-        }
-        h1, h2 {
-            color: #e91e63;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        .btn, .nav-buttons a {
-            display: inline-block;
+
+        /* Section de prix et bouton d'achat */
+        .price-info {
             margin-top: 20px;
-            padding: 12px 25px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #e91e63;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s ease-in-out;
-            cursor: pointer;
+            font-size: 18px;
+            color: #ff69b4;
         }
-        .btn:hover, .nav-buttons a:hover {
-            background-color: #c2185b;
-        }
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+
+        /* Optimisation pour mobile */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-                min-height: 100vh;
-                justify-content: flex-start;
-            }
-            .content {
-                width: 90%;
+            header {
                 padding: 15px;
             }
-            .nav-buttons {
-                flex-direction: column;
-                align-items: center;
+
+            h1 {
+                font-size: 20px;
             }
-            .nav-buttons a {
-                width: 100%;
-                text-align: center;
-                margin: 10px 0;
+
+            .cta {
+                font-size: 18px;
+                padding: 12px 20px;
+            }
+
+            .scroll-gallery-wrapper {
+                display: flex;
+                justify-content: center;
+                overflow-x: auto;
+                margin: 0 auto;
+                /* Flexbox pour assurer que les images s'affichent en ligne sur mobile */
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+
+            .scroll-gallery {
+                display: flex;
+                flex-direction: row; /* Images en ligne */
+                width: max-content;
+            }
+
+            .scroll-gallery img {
+                width: 90%; /* Plus grande taille d'image sur mobile */
+                max-width: 250px; /* Limite de la taille */
+                margin: 0 5px;
+                filter: blur(4px);
+            }
+
+            footer {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div id="page1" class="content active">
+    <header>
+        <h1>Bienvenue sur Emily's Photos</h1>
+        <p>Découvrez des photos exclusives et personnelles.</p>
+    </header>
+    
+    <section>
+        <h2>Galerie Exclusive</h2>
+        <div class="scroll-container">
+            <div class="scroll-gallery-wrapper">
+                <div class="scroll-gallery">
+                    <img src="https://i.imgur.com/qEq4J83.jpeg" alt="Photo 1">
+                    <img src="https://i.imgur.com/DvriBkV.jpeg" alt="Photo 2">
+                    <img src="https://i.imgur.com/S74UD2o.jpeg" alt="Photo 3">
+                    <img src="https://i.imgur.com/xvi2KfY.jpeg" alt="Photo 4">
+                    <img src="https://i.imgur.com/QCxnbHL.jpeg" alt="Photo 5">
+                    <img src="https://i.imgur.com/EmTtrJQ.jpeg" alt="Photo 6">
+                    <img src="https://i.imgur.com/7e6WC1c.jpeg" alt="Photo 7">
+                    <img src="https://i.imgur.com/M0uhqfQ.jpeg" alt="Photo 8">
+                    <img src="https://i.imgur.com/qEq4J83.jpeg" alt="Photo 1">
+                    <img src="https://i.imgur.com/DvriBkV.jpeg" alt="Photo 2">
+                    <img src="https://i.imgur.com/S74UD2o.jpeg" alt="Photo 3">
+                    <img src="https://i.imgur.com/xvi2KfY.jpeg" alt="Photo 4">
+                    <img src="https://i.imgur.com/QCxnbHL.jpeg" alt="Photo 5">
+                    <img src="https://i.imgur.com/EmTtrJQ.jpeg" alt="Photo 6">
+                    <img src="https://i.imgur.com/7e6WC1c.jpeg" alt="Photo 7">
+                    <img src="https://i.imgur.com/M0uhqfQ.jpeg" alt="Photo 8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Acheter des Photos Exclusives</h2>
+        <p>Chaque photo est disponible pour seulement <strong>10€</strong>. Sélectionne celles que tu préfères et passe ta commande en toute simplicité !</p>
+        <p class="price-info">Fais-nous part de tes demandes spécifiques pour personnaliser ton achat !</p>
+
+        <!-- Le bouton redirige maintenant vers PayPal -->
+        <button class="cta" onclick="window.location.href='https://paypal.me/EmilyLesure?country.x=FR&locale.x=fr_FR'">Acheter</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Emily. Tous droits réservés.</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
             <h1>📸 Choisis Tes Photos Préférées</h1>
             <p>Je propose une sélection unique de mes plus belles photos. Sélectionne celles que tu veux et reçois-les en exclusivité ! 💖</p>
-            <div class="nav-buttons">
-                <a href="#" onclick="nextPage(event)">Suivant →</a>
-            </div>
-        </div>
-        
-        <div id="page2" class="content">
-            <h2>✨ Pourquoi Acheter Mes Photos ?</h2>
-            <ul>
-                <li>🌸 Photos exclusives et inédites</li>
-                <li>💌 Possibilité de personnalisation</li>
-                <li>📥 Envoi rapide après paiement</li>
-            </ul>
-            <div class="nav-buttons">
-                <a href="#" onclick="prevPage(event)">← Précédent</a>
-                <a href="#" onclick="nextPage(event)">Suivant →</a>
-            </div>
-        </div>
-        
-        <div id="page3" class="content">
-            <h2>💎 Sélectionne Tes Favoris</h2>
-            <p>Prends ton temps pour choisir les photos qui te plaisent le plus !</p>
-            <div class="nav-buttons">
-                <a href="#" onclick="prevPage(event)">← Précédent</a>
-                <a href="#" onclick="nextPage(event)">Suivant →</a>
-            </div>
-        </div>
-
-        <div id="page4" class="content">
-            <h2>💖 Commande Tes Photos</h2>
-            <p>Chaque photo est au prix de <strong>20€</strong>. Utilise le bouton ci-dessous pour payer :</p>
-            
-            <a href="https://paypal.me/EmilyLesure?country.x=FR&locale.x=fr_FR" class="btn" target="_blank">💳 Payer avec PayPal</a>
-            
-            <div class="nav-buttons">
-                <a href="#" onclick="prevPage(event)">← Précédent</a>
-            </div>
         </div>
     </div>
 
     <script>
-        let currentPage = 1;
-        const totalPages = 4;
-
-        function showPage(page) {
-            document.querySelectorAll('.content').forEach((content, index) => {
-                content.classList.remove('active');
-                if (index + 1 === page) {
-                    content.classList.add('active');
-                }
-            });
-        }
-
-        function nextPage(event) {
-            event.preventDefault();
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        }
-
-        function prevPage(event) {
-            event.preventDefault();
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-            }
+        function closeModal() {
+            document.getElementById("modal").classList.remove("active");
         }
     </script>
 </body>
