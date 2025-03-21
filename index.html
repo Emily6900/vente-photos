@@ -14,11 +14,12 @@
             padding: 0;
             overflow-x: hidden;
             transition: filter 0.3s ease;
+            scroll-behavior: smooth; /* Permet un défilement fluide */
         }
 
         header {
             background-color: #000;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
         }
 
@@ -28,8 +29,9 @@
         }
 
         section {
-            padding: 5px 20px;
+            padding: 50px 20px;
             text-align: center;
+            min-height: 300px; /* Hauteur minimale pour que la page soit plus longue */
         }
 
         .cta {
@@ -56,6 +58,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            margin-top: 30px; /* Ajoute un petit espace au-dessus des crédits */
         }
 
         footer p {
@@ -139,7 +142,11 @@
             }
 
             footer {
-                padding: 10px;
+                padding: 20px;
+            }
+
+            section {
+                padding: 50px 20px; /* Augmente l'espace entre les sections */
             }
         }
     </style>
@@ -150,7 +157,7 @@
         <p>Découvrez des photos exclusives et personnelles.</p>
     </header>
     
-    <section style="margin-top: -20px;">
+    <section>
         <h2>Galerie Exclusive</h2>
         <div class="scroll-container">
             <div class="scroll-gallery-wrapper">
@@ -176,7 +183,7 @@
         </div>
     </section>
 
-    <section style="margin-top: -20px;">
+    <section>
         <h2>Acheter des Photos Exclusives</h2>
         <p>Chaque photo est disponible pour seulement <strong>10€</strong>. Sélectionne celles que tu préfères et passe ta commande en toute simplicité !</p>
         <p class="price-info">Fais-nous part de tes demandes spécifiques pour personnaliser ton achat !</p>
@@ -186,7 +193,7 @@
     </section>
 
     <footer>
-        <p style="text-align:center; margin-left: 10px;">© 2025 Emily. Tous droits réservés.</p>
+        <p>© 2025 Emily. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
