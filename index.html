@@ -1,195 +1,189 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emily's Photos - Vente de contenu exclusif">
-    <title>Emily's Photos - Vente de contenu exclusif</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            transition: filter 0.3s ease;
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ines - Photos Exclusives</title>
 
-        header {
-            background-color: #000;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg,#0f0f0f,#1a1a1a);
+  color: #fff;
+  overflow-x: hidden;
+}
 
-        h1 {
-            margin: 0;
-            font-size: 24px;
-        }
+header {
+  background: #000;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+header h1 { font-size: 38px; margin: 0; }
+header p { color: #ff69b4; font-size: 18px; margin-top: 8px; }
 
-        section {
-            padding: 20px;
-            text-align: center;
-            min-height: 300px;
-        }
+.presentation {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ddd;
+}
+.presentation .cta-text {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #ff69b4;
+  font-weight: bold;
+}
 
-        .cta {
-            margin-top: 15px; /* Réduit encore l'espace au-dessus du bouton */
-            padding: 15px 25px;
-            background-color: #ff69b4;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 22px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+.gallery-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin: 40px 0;
+}
+.slide-track {
+  display: flex;
+  gap: 20px;
+  width: calc(300px * 14 + 20px * 14);
+  animation: scroll 35s linear infinite;
+}
+.gallery img {
+  width: 300px;
+  border-radius: 12px;
+  filter: blur(8px);
+  transition: transform 0.5s, filter 0.5s;
+  cursor: pointer;
+}
+.gallery img:hover {
+  filter: blur(0px);
+  transform: scale(1.1);
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-        .cta:hover {
-            background-color: #c2185b;
-            transform: scale(1.1);
-        }
+.requests {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+}
+.requests h2 { font-size: 28px; margin-bottom: 15px; }
+.requests ul { font-size: 18px; color: #ff69b4; }
+.requests li { margin-bottom: 8px; }
+.requests .cta-reminder {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #ff69b4;
+  font-weight: bold;
+}
 
-        footer {
-            background-color: #000;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+.buy {
+  padding: 50px 20px;
+  text-align: center;
+}
+.buy h2 { font-size: 28px; margin-bottom: 20px; }
+.buy button {
+  margin-top: 20px;
+  padding: 18px 50px;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  background: #ff69b4;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+.buy button:hover {
+  transform: scale(1.1);
+  background: #ff1493;
+}
 
-        footer p {
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
+.socials {
+  text-align: center;
+  margin: 20px 0;
+}
+.socials a {
+  color: #ff69b4;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+.socials a:hover { transform: scale(1.2); }
 
-        .scroll-gallery-wrapper {
-            overflow: hidden;
-            width: 100%;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .scroll-gallery {
-            display: flex;
-            animation: scroll 40s linear infinite;
-        }
-
-        .scroll-gallery img {
-            width: 300px;
-            height: auto;
-            margin: 0 10px;
-            filter: blur(8px);
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .scroll-gallery img:hover {
-            filter: blur(4px);
-        }
-
-        @keyframes scroll {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        .price-info {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #ff69b4;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            .cta {
-                font-size: 18px;
-                padding: 12px 20px;
-            }
-
-            .scroll-gallery-wrapper {
-                width: 100%;
-                overflow-x: scroll;
-                display: block;
-                white-space: nowrap;
-            }
-
-            .scroll-gallery {
-                display: inline-flex;
-                width: auto;
-            }
-
-            .scroll-gallery img {
-                width: 250px;
-                margin: 0 5px;
-                filter: blur(4px);
-            }
-
-            footer {
-                padding: 20px;
-            }
-
-            section {
-                padding: 50px 20px;
-            }
-        }
-    </style>
+footer {
+  background: #000;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Bienvenue sur Emily's Photos</h1>
-        <p>Découvrez des photos exclusives et personnelles.</p>
-    </header>
-    
-    <section>
-        <h2>Galerie Exclusive</h2>
-        <div class="scroll-container">
-            <div class="scroll-gallery-wrapper">
-                <div class="scroll-gallery">
-                    <img src="https://i.imgur.com/qEq4J83.jpeg" alt="Photo 1">
-                    <img src="https://i.imgur.com/DvriBkV.jpeg" alt="Photo 2">
-                    <img src="https://i.imgur.com/S74UD2o.jpeg" alt="Photo 3">
-                    <img src="https://i.imgur.com/xvi2KfY.jpeg" alt="Photo 4">
-                    <img src="https://i.imgur.com/QCxnbHL.jpeg" alt="Photo 5">
-                    <img src="https://i.imgur.com/EmTtrJQ.jpeg" alt="Photo 6">
-                    <img src="https://i.imgur.com/7e6WC1c.jpeg" alt="Photo 7">
-                    <img src="https://i.imgur.com/M0uhqfQ.jpeg" alt="Photo 8">
-                    <img src="https://i.imgur.com/qEq4J83.jpeg" alt="Photo 1">
-                    <img src="https://i.imgur.com/DvriBkV.jpeg" alt="Photo 2">
-                    <img src="https://i.imgur.com/S74UD2o.jpeg" alt="Photo 3">
-                    <img src="https://i.imgur.com/xvi2KfY.jpeg" alt="Photo 4">
-                    <img src="https://i.imgur.com/QCxnbHL.jpeg" alt="Photo 5">
-                    <img src="https://i.imgur.com/EmTtrJQ.jpeg" alt="Photo 6">
-                    <img src="https://i.imgur.com/7e6WC1c.jpeg" alt="Photo 7">
-                    <img src="https://i.imgur.com/M0uhqfQ.jpeg" alt="Photo 8">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section>
-        <h2>Acheter des Photos Exclusives</h2>
-        <p>Chaque photo est disponible pour seulement <strong>10€</strong>. Sélectionne celles que tu préfères et passe ta commande en toute simplicité !</p>
-        <p class="price-info">Fais-nous part de tes demandes spécifiques pour personnaliser ton achat !</p>
+<header>
+<h1>Ines - Photos Exclusives</h1>
+<p>Contenu privé et sexy réservé aux vrais fans 💖</p>
+</header>
 
-        <!-- Le bouton redirige maintenant vers PayPal -->
-        <button class="cta" onclick="window.location.href='https://paypal.me/EmilyLesure?country.x=FR&locale.x=fr_FR'">Acheter</button>
-    </section>
+<section class="presentation">
+<p>Salut, je m'appelle <strong>Ines</strong>, j'ai 22 ans 😘. Je suis là pour te montrer mes photos exclusives, un peu chaudes et sexy… je te promets que tu vas adorer découvrir chaque image.</p>
+<p class="cta-text">Passe la souris sur les images pour les voir plus clairement et découvre ce que je réserve 💕</p>
+</section>
 
-    <footer>
-        <p>© 2025 Emily. Tous droits réservés.</p>
-    </footer>
+<section class="gallery-wrapper">
+  <div class="slide-track gallery">
+    <img src="https://i.postimg.cc/sMfbZc8k/156D8004-22D2-427C-BD86-8462C9A4DAF9.jpg">
+    <img src="https://i.postimg.cc/nXVNQk55/75EEEB68-EFF1-4567-96BD-73659F675E37.jpg">
+    <img src="https://i.postimg.cc/TK2BW9SN/94EE588F-821E-4255-B2D7-2168B3F22CED.jpg">
+    <img src="https://i.postimg.cc/686FG0SM/E0955FF5-2D58-46EC-8FFE-508BF22C89AD.jpg">
+    <img src="https://i.postimg.cc/9DXsqpK3/E31373AD-FF22-4375-9261-5F20303FD317-(1).jpg">
+    <img src="https://i.postimg.cc/4Y4jh5MS/IMG-3088.jpg">
+    <img src="https://i.postimg.cc/87kxrH3n/IMG-6652.jpg">
+    <img src="https://i.postimg.cc/sMfbZc8k/156D8004-22D2-427C-BD86-8462C9A4DAF9.jpg">
+    <img src="https://i.postimg.cc/nXVNQk55/75EEEB68-EFF1-4567-96BD-73659F675E37.jpg">
+    <img src="https://i.postimg.cc/TK2BW9SN/94EE588F-821E-4255-B2D7-2168B3F22CED.jpg">
+    <img src="https://i.postimg.cc/686FG0SM/E0955FF5-2D58-46EC-8FFE-508BF22C89AD.jpg">
+    <img src="https://i.postimg.cc/9DXsqpK3/E31373AD-FF22-4375-9261-5F20303FD317-(1).jpg">
+    <img src="https://i.postimg.cc/4Y4jh5MS/IMG-3088.jpg">
+    <img src="https://i.postimg.cc/87kxrH3n/IMG-6652.jpg">
+  </div>
+</section>
+
+<section class="requests">
+<h2>Fais ta demande :</h2>
+<ul>
+  <li>💌 Photo simple : 5€</li>
+  <li>🔥 Photo hot : 10€</li>
+  <li>💖 Photo personnalisée : 25€</li>
+  <li>👑 Domination : 50€</li>
+  <li>📹 Appel FaceTime : 100€</li>
+</ul>
+<p class="cta-reminder">Envoie-moi ta demande exacte pour que tout soit préparé rien que pour toi 💌</p>
+</section>
+
+<section class="buy">
+<h2>Découvre mes contenus exclusifs :</h2>
+<button onclick="window.location.href='https://paypal.me/EmilyLesureee'">
+Fais ta commande 💌
+</button>
+</section>
+
+<section class="socials">
+<p>Retrouve-moi sur Instagram : <a href="https://instagram.com/neness.mts" target="_blank">@neness.mts</a></p>
+</section>
+
+<footer>
+© 2026 Ines
+</footer>
+
 </body>
 </html>
