@@ -15,44 +15,48 @@ body {
   overflow-x: hidden;
 }
 
+/* HEADER */
 header {
   background: #000;
-  padding: 40px 20px;
+  padding: 30px 20px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.7);
 }
-header h1 { font-size: 38px; margin: 0; }
-header p { color: #ff69b4; font-size: 18px; margin-top: 8px; }
+header h1 { font-size: 32px; margin: 0; }
+header p { color: #ff69b4; font-size: 16px; margin-top: 6px; }
 
+/* PRESENTATION */
 .presentation {
   max-width: 900px;
-  margin: 30px auto;
-  padding: 0 20px;
+  margin: 20px auto;
+  padding: 0 15px;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.5;
   color: #ddd;
 }
 .presentation .cta-text {
-  margin-top: 15px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 18px;
   color: #ff69b4;
   font-weight: bold;
 }
 
+/* SLIDE INFINI */
 .gallery-wrapper {
   overflow: hidden;
   width: 100%;
-  margin: 40px 0;
+  margin: 30px 0;
 }
 .slide-track {
   display: flex;
-  gap: 20px;
-  width: calc(300px * 14 + 20px * 14);
+  gap: 15px;
+  width: calc(300px * 14 + 15px * 14);
   animation: scroll 35s linear infinite;
 }
 .gallery img {
   width: 300px;
+  max-width: 90vw;
   border-radius: 12px;
   filter: blur(8px);
   transition: transform 0.5s, filter 0.5s;
@@ -60,38 +64,40 @@ header p { color: #ff69b4; font-size: 18px; margin-top: 8px; }
 }
 .gallery img:hover {
   filter: blur(0px);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+/* DEMANDES / TARIFS */
 .requests {
-  padding: 40px 20px;
+  padding: 30px 15px;
   max-width: 900px;
   margin: auto;
   text-align: left;
 }
-.requests h2 { font-size: 28px; margin-bottom: 15px; }
-.requests ul { font-size: 18px; color: #ff69b4; }
-.requests li { margin-bottom: 8px; }
+.requests h2 { font-size: 24px; margin-bottom: 12px; }
+.requests ul { font-size: 16px; color: #ff69b4; }
+.requests li { margin-bottom: 6px; }
 .requests .cta-reminder {
-  margin-top: 15px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 18px;
   color: #ff69b4;
   font-weight: bold;
 }
 
+/* CALL-TO-ACTION BUTTON */
 .buy {
-  padding: 50px 20px;
+  padding: 40px 15px;
   text-align: center;
 }
-.buy h2 { font-size: 28px; margin-bottom: 20px; }
+.buy h2 { font-size: 24px; margin-bottom: 15px; }
 .buy button {
-  margin-top: 20px;
-  padding: 18px 50px;
-  font-size: 24px;
+  margin-top: 15px;
+  padding: 16px 40px;
+  font-size: 20px;
   border: none;
   border-radius: 10px;
   background: #ff69b4;
@@ -101,28 +107,53 @@ header p { color: #ff69b4; font-size: 18px; margin-top: 8px; }
   transition: transform 0.3s, background 0.3s;
 }
 .buy button:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background: #ff1493;
 }
 
+/* RESEAUX SOCIAUX */
 .socials {
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .socials a {
   color: #ff69b4;
   text-decoration: none;
-  font-size: 20px;
-  margin: 0 10px;
+  font-size: 18px;
+  margin: 0 8px;
   transition: transform 0.3s;
 }
 .socials a:hover { transform: scale(1.2); }
 
+/* FOOTER */
 footer {
   background: #000;
-  padding: 15px;
+  padding: 12px;
   text-align: center;
   font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header h1 { font-size: 26px; }
+  header p { font-size: 14px; }
+  .presentation { font-size: 15px; }
+  .presentation .cta-text { font-size: 16px; }
+  .slide-track { gap: 10px; }
+  .gallery img { width: 240px; }
+  .requests h2 { font-size: 22px; }
+  .requests ul { font-size: 15px; }
+  .requests .cta-reminder { font-size: 16px; }
+  .buy h2 { font-size: 22px; }
+  .buy button { font-size: 18px; padding: 14px 35px; }
+  .socials a { font-size: 16px; margin: 0 6px; }
+}
+
+@media (max-width: 480px) {
+  header h1 { font-size: 22px; }
+  .gallery img { width: 180px; }
+  .buy button { font-size: 16px; padding: 12px 28px; }
+  .requests h2 { font-size: 20px; }
 }
 </style>
 </head>
@@ -148,6 +179,7 @@ footer {
     <img src="https://i.postimg.cc/9DXsqpK3/E31373AD-FF22-4375-9261-5F20303FD317-(1).jpg">
     <img src="https://i.postimg.cc/4Y4jh5MS/IMG-3088.jpg">
     <img src="https://i.postimg.cc/87kxrH3n/IMG-6652.jpg">
+    <!-- duplication pour boucle infinie -->
     <img src="https://i.postimg.cc/sMfbZc8k/156D8004-22D2-427C-BD86-8462C9A4DAF9.jpg">
     <img src="https://i.postimg.cc/nXVNQk55/75EEEB68-EFF1-4567-96BD-73659F675E37.jpg">
     <img src="https://i.postimg.cc/TK2BW9SN/94EE588F-821E-4255-B2D7-2168B3F22CED.jpg">
